@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <label>Enter your name : </label>
+    <input
+      type="text"
+      class="form-control"
+      #firstName
+      required>
+    <br>
+    <button class="btn btn-primary" (click)="onAddEmployee(firstName.value)">Add an Employee</button>
+  </div>
+  <hr>
+  <div class="row">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <!--<th>Last Name</th>-->
+        </tr>
+      </thead>
+      <tbody *ngFor="let name of names; let i = index">
+        <tr>
+          <td
+            [ngClass]="{nameFilter: i % 2 != 0}"
+            [ngStyle]="{backgroundColor: i % 2 === 0 ? 'yellow' : 'transparent'}">
+              {{name.firstName}}
+          </td>
+          <!--<td>{{name.lastName}}</td>-->
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <p appBasicValidation> This is a basic directive</p>
+  </div>
+</div>
